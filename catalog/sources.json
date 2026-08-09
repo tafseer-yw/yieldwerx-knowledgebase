@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "authority_order": [
+    "approved feature specification or durable product decision",
+    "current handbook",
+    "secondary support material",
+    "archived handbook"
+  ],
+  "documents": [
+    {
+      "id": "handbook-first-html",
+      "title": "The yieldWerx Domain Handbook - First Edition (Interactive)",
+      "type": "handbook",
+      "edition": 1,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/first-edition/Interactive - The yieldWerx Domain Handbook - First Edition.html",
+      "sha256": "09ca3449bc462c5bb4ad0e103bceffc495f6d93c20aa8731fe26d526a3d2881b",
+      "bytes": 2602639
+    },
+    {
+      "id": "handbook-first-docx",
+      "title": "The yieldWerx Domain Handbook - First Edition",
+      "type": "handbook",
+      "edition": 1,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/first-edition/The yieldWerx Domain Handbook - First Edition.docx",
+      "sha256": "3278983407c629e3979e19a5486c0d4a8dab4445cbaee3b740f02d520375d2af",
+      "bytes": 1843245
+    },
+    {
+      "id": "handbook-first-pdf",
+      "title": "The yieldWerx Domain Handbook - First Edition",
+      "type": "handbook",
+      "edition": 1,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/first-edition/The yieldWerx Domain Handbook - First Edition.pdf",
+      "sha256": "ed4b3c0e6440effa06571d3516857ee7273458b4f2878ec38c2ef6e89921bc4c",
+      "bytes": 2122616
+    },
+    {
+      "id": "handbook-second-html",
+      "title": "The yieldWerx Domain Handbook - Second Edition (Interactive)",
+      "type": "handbook",
+      "edition": 2,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/second-edition/Interactive - The yieldWerx Domain Handbook - Second Edition.html",
+      "sha256": "114312a8583502c92b2a47918aa3b4cfc25e00a88ad99e1b05c4fe7687a29642",
+      "bytes": 3380870
+    },
+    {
+      "id": "handbook-second-docx",
+      "title": "The yieldWerx Domain Handbook - Second Edition",
+      "type": "handbook",
+      "edition": 2,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/second-edition/The yieldWerx Domain Handbook - Second Edition.docx",
+      "sha256": "00aea9ed42f7e17a01ec1d5dd1c442e121453a38d690f1cb8982745e265ee404",
+      "bytes": 2362851
+    },
+    {
+      "id": "handbook-second-pdf",
+      "title": "The yieldWerx Domain Handbook - Second Edition",
+      "type": "handbook",
+      "edition": 2,
+      "status": "archived",
+      "authority": "historical",
+      "confidentiality": "internal",
+      "path": "sources/archive/second-edition/The yieldWerx Domain Handbook - Second Edition.pdf",
+      "sha256": "5ea052c230e9f3b915442d08720df4dfa94fcdb3ab7062132bd2b6d809fe22b9",
+      "bytes": 2898111
+    },
+    {
+      "id": "handbook-third-html",
+      "title": "The yieldWerx Domain Handbook - Third Edition (Interactive)",
+      "type": "handbook",
+      "edition": 3,
+      "status": "current",
+      "authority": "primary",
+      "confidentiality": "internal",
+      "path": "sources/current/third-edition/Interactive - The yieldWerx Domain Handbook - Third Edition.html",
+      "sha256": "f9fca7e6030e6d910ed44673588a09ef4b9cb5179f620b085bd2419999b95bbe",
+      "bytes": 4814790
+    },
+    {
+      "id": "handbook-third-pdf",
+      "title": "The yieldWerx Domain Handbook - Third Edition",
+      "type": "handbook",
+      "edition": 3,
+      "status": "current",
+      "authority": "primary",
+      "confidentiality": "internal",
+      "path": "sources/current/third-edition/The yieldWerx Domain Handbook - Third Edition.pdf",
+      "sha256": "3c6fccccd1541c11fb332dd52cde3f2d6824f0f14313ef2f68d5660c7ecb64e8",
+      "bytes": 4548967
+    },
+    {
+      "id": "support-notebooklm-video-prompts",
+      "title": "NotebookLM Video Prompts",
+      "type": "support",
+      "status": "supporting",
+      "authority": "non-authoritative",
+      "confidentiality": "internal",
+      "path": "sources/support/NotebookLM_Video_Prompts.md",
+      "sha256": "fbd16bb668c71b388107524edb39eac8918d19c261660949a95339aa448f1640",
+      "bytes": 9211
+    },
+    {
+      "id": "support-application-user-guide",
+      "title": "yieldWerx Application - Complete User Guide (Internal)",
+      "type": "user-guide",
+      "status": "supporting",
+      "authority": "secondary",
+      "confidentiality": "internal",
+      "path": "sources/support/yieldWerx Application - Complete User Guide (Internal).pdf",
+      "sha256": "e5a6fc1e5e41ed247114b8721d08c25306aca7187ae661c0b98cc02f1e73c1f0",
+      "bytes": 23793331
+    },
+    {
+      "id": "support-key-terminologies",
+      "title": "yieldWerx Fundamentals - Key Terminologies",
+      "type": "training",
+      "status": "supporting",
+      "authority": "secondary",
+      "confidentiality": "internal",
+      "path": "sources/support/yieldWerx Fundamentals - Key Terminologies.pdf",
+      "sha256": "db44bae2ca5ddd81c21918d83446bb9f3f39e39af06de5dc41f8478478184bdc",
+      "bytes": 4995783
+    },
+    {
+      "id": "support-sqa-domain-training-plan-v3-1",
+      "title": "yieldWerx SQA Domain Training Plan v3.1",
+      "type": "training",
+      "status": "supporting",
+      "authority": "secondary",
+      "confidentiality": "internal",
+      "path": "sources/support/yieldWerx_SQA_Domain_Training_Plan v3.1.pdf",
+      "sha256": "81c7efb3cd291896ab7d334955f636cee1b7969c7558f3932760493858d4f66c",
+      "bytes": 903012
+    },
+    {
+      "id": "support-yieldwerx-overview",
+      "title": "yieldWerx Overview",
+      "type": "support",
+      "status": "supporting",
+      "authority": "secondary",
+      "confidentiality": "internal",
+      "path": "sources/support/yieldWerx.pdf",
+      "sha256": "bcb4c9c74f834594ff1e448178c55dccf27bef0e023064919b45967e2426c447",
+      "bytes": 15275556
+    }
+  ]
+}

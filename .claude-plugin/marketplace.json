@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "yieldwerx-company",
+  "owner": {
+    "name": "YieldWerx",
+    "email": "tafseer.haider@yieldwerx.com"
+  },
+  "metadata": {
+    "description": "Approved YieldWerx company skills"
+  },
+  "plugins": [
+    {
+      "name": "yieldwerx-knowledgebase",
+      "source": "./plugins/yieldwerx-knowledgebase",
+      "description": "Find and maintain YieldWerx domain knowledge with source traceability",
+      "category": "knowledge",
+      "tags": ["yieldwerx", "domain", "qa", "semiconductor"]
+    }
+  ]
+}

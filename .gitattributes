@@ -1,0 +1,8 @@
+sources/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+sources/**/*.docx filter=lfs diff=lfs merge=lfs -text
+sources/**/*.html filter=lfs diff=lfs merge=lfs -text
+
+*.md text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+*.yml text eol=lf

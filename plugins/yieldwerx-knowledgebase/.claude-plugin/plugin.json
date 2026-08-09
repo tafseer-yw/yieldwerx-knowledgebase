@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "yieldwerx-knowledgebase",
+  "version": "1.1.0",
+  "description": "Token-efficient YieldWerx domain knowledge with clear source traceability",
+  "author": {
+    "name": "YieldWerx",
+    "email": "tafseer.haider@yieldwerx.com"
+  },
+  "homepage": "https://yieldwerxus.visualstudio.com/yieldWerx%20-%20QA%20Automation/_git/yieldwerx-knowledgebase",
+  "repository": "https://yieldwerxus.visualstudio.com/yieldWerx%20-%20QA%20Automation/_git/yieldwerx-knowledgebase",
+  "license": "Proprietary",
+  "keywords": ["yieldwerx", "knowledge", "qa", "semiconductor"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "yieldwerx-knowledgebase",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Central YieldWerx domain knowledge and portable Claude skills",
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract-handbook-html.mjs",
+    "catalog": "node scripts/build-source-catalog.mjs",
+    "package:skills": "node scripts/package-skills.mjs",
+    "test": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
