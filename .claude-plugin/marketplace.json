@@ -11,6 +11,7 @@
   "plugins": [
     {
       "name": "yieldwerx-knowledgebase",
+      "displayName": "yieldWerx Knowledgebase",
       "source": "./plugins/yieldwerx-knowledgebase",
       "description": "Find and maintain YieldWerx domain knowledge with source traceability",
       "category": "knowledge",

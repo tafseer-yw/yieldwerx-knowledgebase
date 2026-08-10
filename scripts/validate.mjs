@@ -64,8 +64,14 @@ if (marketplace.plugins?.length !== 1) fail("Marketplace must contain exactly on
 if (marketplace.plugins?.[0]?.source !== "./plugins/yieldwerx-knowledgebase") {
   fail("Marketplace plugin source is incorrect.");
 }
+if (marketplace.plugins?.[0]?.displayName !== "yieldWerx Knowledgebase") {
+  fail("Marketplace plugin displayName must be yieldWerx Knowledgebase.");
+}
 if (manifest.name !== "yieldwerx-knowledgebase") {
   fail("Plugin manifest name must be yieldwerx-knowledgebase.");
+}
+if (manifest.displayName !== "yieldWerx Knowledgebase") {
+  fail("Plugin manifest displayName must be yieldWerx Knowledgebase.");
 }
 if (!/^\d+\.\d+\.\d+$/.test(manifest.version ?? "")) {
   fail("Plugin manifest version must use semantic versioning.");

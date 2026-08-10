@@ -2,6 +2,14 @@
 
 All important knowledge and distribution changes are recorded here.
 
+## 1.1.1 - 2026-08-10
+
+### Changed
+
+- Added the human-readable plugin name **yieldWerx Knowledgebase** for Claude
+  Desktop while retaining `yieldwerx-knowledgebase` as the stable plugin
+  identifier.
+
 ## 1.1.0 - 2026-07-29
 
 ### Changed
