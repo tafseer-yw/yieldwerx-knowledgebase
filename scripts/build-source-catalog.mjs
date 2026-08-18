@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { catalogOrder } from "./lib/authority.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const sourcesRoot = path.join(root, "sources");
@@ -187,12 +188,7 @@ fs.writeFileSync(
   `${JSON.stringify(
     {
       schema_version: 1,
-      authority_order: [
-        "approved feature specification or durable product decision",
-        "current handbook",
-        "secondary support material",
-        "archived handbook",
-      ],
+      authority_order: catalogOrder(),
       documents,
     },
     null,

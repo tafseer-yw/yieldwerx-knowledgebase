@@ -2,10 +2,14 @@
 
 ## Authority order
 
+<!-- BEGIN GENERATED: authority order (node scripts/render-authority.mjs) -->
+
 1. Approved feature specification or durable product decision.
 2. Current YieldWerx Domain Handbook.
 3. Supporting product and training material.
 4. Archived handbook editions.
+
+<!-- END GENERATED -->
 
 ## Current source
 

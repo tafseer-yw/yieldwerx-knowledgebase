@@ -205,6 +205,33 @@ for (const file of markdownFiles) {
   }
 }
 
+// domain-map.md asserts formulas, table names and module ordering by hand and
+// ships to every user, while every chapter beside it is generated from a
+// hashed source. Without a declared provenance a reader cannot tell which kind
+// of file they are reading - and this is the one that can be quietly wrong.
+{
+  const domainMap = path.join(
+    root,
+    "plugins/yieldwerx-knowledgebase/skills/ask-yieldwerx/references/domain-map.md",
+  );
+  if (!fs.existsSync(domainMap)) {
+    fail("domain-map.md is missing.");
+  } else {
+    const text = fs.readFileSync(domainMap, "utf8");
+    for (const marker of ["generated: false", "authored: hand-written", "Hand-written, not generated"]) {
+      if (!text.includes(marker)) {
+        fail(`domain-map.md must declare its provenance ('${marker}') - it is hand-asserted, not derived.`);
+      }
+    }
+  }
+}
+
+for (const required of ["scripts/lib/authority.mjs", "scripts/render-authority.mjs"]) {
+  if (!fs.existsSync(path.join(root, required))) {
+    fail(`${required} is missing - the authority order would go back to being written out five times.`);
+  }
+}
+
 const owners = fs.readFileSync(path.join(root, "CODEOWNERS"), "utf8");
 if (!owners.includes("* tafseer.haider@yieldwerx.com")) {
   fail("CODEOWNERS does not assign all files to tafseer.haider@yieldwerx.com.");

@@ -1,3 +1,12 @@
+---
+id: domain-map
+source_id: handbook-third-html
+generated: false
+authored: hand-written
+status: current
+review: owner-approved
+---
+
 # YieldWerx Domain Map — current domain catalog for QA design
 
 This is the **current generic domain starting point** for QA and product analysis.
@@ -16,6 +25,14 @@ brackets). It is not exhaustive or automatically authoritative over an approved
 feature specification or durable product decision. Extend it as modules are covered.
 
 ---
+
+> **Hand-written, not generated.** Every handbook chapter beside this file
+> carries `generated: true` and is reproduced from a hashed source, so a wrong
+> line there is a bug in the extractor. This file is different: its formulas,
+> table names and module ordering are asserted by hand from the Third Edition
+> and are **not** verified against it by any check. Treat a disagreement with a
+> chapter as a defect in this file, and correct it here rather than working
+> around it. Changes are owner-reviewed under `UPDATE-POLICY.md`.
 
 ## 1. Module catalog — what YieldWerx does
 

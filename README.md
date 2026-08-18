@@ -53,10 +53,14 @@ relevant chapter instead of loading the complete handbook.
 
 Use this order when sources disagree:
 
+<!-- BEGIN GENERATED: authority order (node scripts/render-authority.mjs) -->
+
 1. Approved feature specification or durable product decision.
 2. Current YieldWerx Domain Handbook.
 3. Supporting product and training material.
 4. Archived handbook editions.
+
+<!-- END GENERATED -->
 
 The handbook does not override a newer approved product decision. A conflict must be
 reported and then corrected in this repository.

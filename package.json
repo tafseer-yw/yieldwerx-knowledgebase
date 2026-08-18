@@ -8,10 +8,12 @@
     "extract": "node scripts/extract-handbook-html.mjs",
     "catalog": "node scripts/build-source-catalog.mjs",
     "package:skills": "node scripts/package-skills.mjs",
-    "test": "node scripts/validate.mjs && node scripts/check-chapter-freshness.mjs && node scripts/test-chapter-freshness.mjs && node scripts/test-guards.mjs",
+    "test": "node scripts/validate.mjs && node scripts/render-authority.mjs --check && node scripts/check-chapter-freshness.mjs && node scripts/test-chapter-freshness.mjs && node scripts/test-guards.mjs",
     "freshness": "node scripts/check-chapter-freshness.mjs",
     "test:freshness": "node scripts/test-chapter-freshness.mjs",
-    "test:guards": "node scripts/test-guards.mjs"
+    "test:guards": "node scripts/test-guards.mjs",
+    "authority:render": "node scripts/render-authority.mjs",
+    "authority:check": "node scripts/render-authority.mjs --check"
   },
   "engines": {
     "node": ">=20"
