@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/guards/write-guard.mjs\"",
+            "timeout": 15,
+            "statusMessage": "Knowledgebase credential guard"
+          }
+        ]
+      }
+    ]
+  }
+}
