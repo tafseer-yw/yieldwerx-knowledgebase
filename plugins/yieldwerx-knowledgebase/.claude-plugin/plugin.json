@@ -8,8 +8,8 @@
     "name": "YieldWerx",
     "email": "tafseer.haider@yieldwerx.com"
   },
-  "homepage": "https://yieldwerxus.visualstudio.com/yieldWerx%20-%20QA%20Automation/_git/yieldwerx-knowledgebase",
-  "repository": "https://yieldwerxus.visualstudio.com/yieldWerx%20-%20QA%20Automation/_git/yieldwerx-knowledgebase",
+  "homepage": "https://github.com/tafseer-yw/yieldwerx-knowledgebase",
+  "repository": "https://github.com/tafseer-yw/yieldwerx-knowledgebase",
   "license": "Proprietary",
   "keywords": ["yieldwerx", "knowledge", "qa", "semiconductor"]
 }

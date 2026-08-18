@@ -122,7 +122,46 @@ function sha256(file) {
   return hash.digest("hex");
 }
 
+/**
+ * A Git LFS pointer is a ~130-byte text stub standing in for the real file.
+ *
+ * This guard exists because the missing-file check below cannot see one. With
+ * git-lfs absent, or objects unfetched (the common GIT_LFS_SKIP_SMUDGE=1
+ * state), every source is PRESENT on disk and 130 bytes long. Without this
+ * check the catalog would be rebuilt from pointer text: every real content
+ * hash silently replaced by the hash of a stub, `npm test` passing against
+ * the corrupted result, and CI passing too - the integrity control this
+ * repository is built around, inverted by its own build script.
+ *
+ * Fail loudly instead. A hash that was not computed over real content must
+ * never be written as though it were.
+ */
+const LFS_POINTER_PREFIX = "version https://git-lfs.github.com/spec/v1";
+
+function isLfsPointer(file) {
+  const handle = fs.openSync(file, "r");
+  try {
+    const buffer = Buffer.alloc(LFS_POINTER_PREFIX.length);
+    const read = fs.readSync(handle, buffer, 0, buffer.length, 0);
+    return read === buffer.length && buffer.toString("utf8") === LFS_POINTER_PREFIX;
+  } finally {
+    fs.closeSync(handle);
+  }
+}
+
 const files = walk(sourcesRoot).sort((a, b) => a.localeCompare(b));
+
+const pointers = files.filter(isLfsPointer).map((file) => path.relative(root, file).replaceAll("\\", "/"));
+if (pointers.length) {
+  throw new Error(
+    `Refusing to build the catalog from Git LFS pointer stubs - the real file content is not present.\n` +
+      `Hashing these would overwrite every real sha256 with the hash of a stub, and both npm test and CI\n` +
+      `would then pass against a corrupted catalog.\n\n` +
+      `${pointers.map((p) => `  ${p}`).join("\n")}\n\n` +
+      `Fix: install git-lfs and run \`git lfs pull\` (or re-clone without GIT_LFS_SKIP_SMUDGE=1).`,
+  );
+}
+
 const documents = files.map((file) => {
   const relativePath = path.relative(root, file).replaceAll("\\", "/");
   const details = metadata[relativePath];

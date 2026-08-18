@@ -2,7 +2,7 @@
 
 ## Claude Code
 
-This repository is a private Claude Code marketplace. Add the Azure Repos Git URL,
+This repository is a private Claude Code marketplace. Add the GitHub Git URL,
 then install `yieldwerx-knowledgebase@yieldwerx-company`.
 
 Claude Code copies an installed plugin into its local plugin cache. For that reason,

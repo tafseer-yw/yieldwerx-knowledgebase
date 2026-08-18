@@ -1,8 +1,8 @@
-# Azure Repos uses the identity below for repository ownership.
+# GitHub branch protection uses the identity below for repository ownership.
 # Azure username: tafseer.haider
 # Email: tafseer.haider@yieldwerx.com
 #
 # Also configure tafseer.haider@yieldwerx.com as a required reviewer in
-# Azure Repos branch policies for main. CODEOWNERS alone does not enforce approval.
+# GitHub branch protection branch policies for main. CODEOWNERS alone does not enforce approval.
 
 * tafseer.haider@yieldwerx.com

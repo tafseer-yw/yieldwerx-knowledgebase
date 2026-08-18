@@ -130,15 +130,14 @@ The `yw` plugin loads this knowledgebase as a dependency. Its internal skills
 are hidden from the user-facing slash-command menu but remain available to the
 `yw` adapters.
 
-Knowledgebase maintainers can add and test this private Azure Repos marketplace
-directly:
+Knowledgebase maintainers can add and test this private marketplace directly:
 
 ```text
-/plugin marketplace add https://yieldwerxus.visualstudio.com/yieldWerx%20-%20QA%20Automation/_git/yieldwerx-knowledgebase
+/plugin marketplace add https://github.com/tafseer-yw/yieldwerx-knowledgebase.git
 /plugin install yieldwerx-knowledgebase@yieldwerx-company
 ```
 
-Azure Repos uses the user’s existing Git credentials. For team-managed Claude Code,
+GitHub uses the user’s existing Git credentials. For team-managed Claude Code,
 an administrator can also add this marketplace in managed settings.
 
 Test locally from the repository before publishing:
@@ -218,4 +217,4 @@ git lfs install
 This repository contains internal YieldWerx material. Do not publish it outside
 approved YieldWerx systems. The current code owner is
 `tafseer.haider@yieldwerx.com`. Configure the same identity as a required reviewer in
-the Azure Repos branch policy for `main`.
+the GitHub branch protection rule for `main`.
