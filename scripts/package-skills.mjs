@@ -105,7 +105,9 @@ function makeZip(sourceDirectory, zipPath) {
 fs.mkdirSync(outputRoot, { recursive: true });
 const skills = fs
   .readdirSync(skillsRoot, { withFileTypes: true })
-  .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(skillsRoot, entry.name, "SKILL.md")))
+  .filter(
+    (entry) => entry.isDirectory() && fs.existsSync(path.join(skillsRoot, entry.name, "SKILL.md")),
+  )
   .map((entry) => entry.name)
   .sort();
 

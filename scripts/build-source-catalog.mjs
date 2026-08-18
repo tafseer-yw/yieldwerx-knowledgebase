@@ -8,14 +8,15 @@ const sourcesRoot = path.join(root, "sources");
 const output = path.join(root, "catalog/sources.json");
 
 const metadata = {
-  "sources/current/third-edition/Interactive - The yieldWerx Domain Handbook - Third Edition.html": {
-    id: "handbook-third-html",
-    title: "The yieldWerx Domain Handbook - Third Edition (Interactive)",
-    type: "handbook",
-    edition: 3,
-    status: "current",
-    authority: "primary",
-  },
+  "sources/current/third-edition/Interactive - The yieldWerx Domain Handbook - Third Edition.html":
+    {
+      id: "handbook-third-html",
+      title: "The yieldWerx Domain Handbook - Third Edition (Interactive)",
+      type: "handbook",
+      edition: 3,
+      status: "current",
+      authority: "primary",
+    },
   "sources/current/third-edition/The yieldWerx Domain Handbook - Third Edition.pdf": {
     id: "handbook-third-pdf",
     title: "The yieldWerx Domain Handbook - Third Edition",
@@ -24,14 +25,15 @@ const metadata = {
     status: "current",
     authority: "primary",
   },
-  "sources/archive/first-edition/Interactive - The yieldWerx Domain Handbook - First Edition.html": {
-    id: "handbook-first-html",
-    title: "The yieldWerx Domain Handbook - First Edition (Interactive)",
-    type: "handbook",
-    edition: 1,
-    status: "archived",
-    authority: "historical",
-  },
+  "sources/archive/first-edition/Interactive - The yieldWerx Domain Handbook - First Edition.html":
+    {
+      id: "handbook-first-html",
+      title: "The yieldWerx Domain Handbook - First Edition (Interactive)",
+      type: "handbook",
+      edition: 1,
+      status: "archived",
+      authority: "historical",
+    },
   "sources/archive/first-edition/The yieldWerx Domain Handbook - First Edition.docx": {
     id: "handbook-first-docx",
     title: "The yieldWerx Domain Handbook - First Edition",
@@ -48,14 +50,15 @@ const metadata = {
     status: "archived",
     authority: "historical",
   },
-  "sources/archive/second-edition/Interactive - The yieldWerx Domain Handbook - Second Edition.html": {
-    id: "handbook-second-html",
-    title: "The yieldWerx Domain Handbook - Second Edition (Interactive)",
-    type: "handbook",
-    edition: 2,
-    status: "archived",
-    authority: "historical",
-  },
+  "sources/archive/second-edition/Interactive - The yieldWerx Domain Handbook - Second Edition.html":
+    {
+      id: "handbook-second-html",
+      title: "The yieldWerx Domain Handbook - Second Edition (Interactive)",
+      type: "handbook",
+      edition: 2,
+      status: "archived",
+      authority: "historical",
+    },
   "sources/archive/second-edition/The yieldWerx Domain Handbook - Second Edition.docx": {
     id: "handbook-second-docx",
     title: "The yieldWerx Domain Handbook - Second Edition",
@@ -152,7 +155,9 @@ function isLfsPointer(file) {
 
 const files = walk(sourcesRoot).sort((a, b) => a.localeCompare(b));
 
-const pointers = files.filter(isLfsPointer).map((file) => path.relative(root, file).replaceAll("\\", "/"));
+const pointers = files
+  .filter(isLfsPointer)
+  .map((file) => path.relative(root, file).replaceAll("\\", "/"));
 if (pointers.length) {
   throw new Error(
     `Refusing to build the catalog from Git LFS pointer stubs - the real file content is not present.\n` +

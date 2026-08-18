@@ -49,7 +49,8 @@ for (const relative of TARGETS) {
   }
   const next = `${doc.slice(0, start + BEGIN.length)}\n\n${proseList()}\n\n${doc.slice(end)}`;
   if (doc === next) continue;
-  if (check) problems.push(`${relative}: authority order is stale - run \`npm run authority:render\``);
+  if (check)
+    problems.push(`${relative}: authority order is stale - run \`npm run authority:render\``);
   else {
     fs.writeFileSync(file, next);
     rewritten += 1;

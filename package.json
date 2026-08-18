@@ -13,7 +13,9 @@
     "test:freshness": "node scripts/test-chapter-freshness.mjs",
     "test:guards": "node scripts/test-guards.mjs",
     "authority:render": "node scripts/render-authority.mjs",
-    "authority:check": "node scripts/render-authority.mjs --check"
+    "authority:check": "node scripts/render-authority.mjs --check",
+    "format": "npx --yes prettier@3 --write \"scripts/**/*.mjs\" \"plugins/**/*.mjs\"",
+    "format:check": "npx --yes prettier@3 --check \"scripts/**/*.mjs\" \"plugins/**/*.mjs\""
   },
   "engines": {
     "node": ">=20"

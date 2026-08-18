@@ -24,15 +24,28 @@ export const CREDENTIAL_RULES = [
   { id: "slack-token", label: "Slack token", re: /\bxox[baprs]-[A-Za-z0-9-]{10,}\b/g },
   { id: "google-api-key", label: "Google API key", re: /\bAIza[0-9A-Za-z_-]{35}\b/g },
   { id: "stripe-live", label: "Stripe live secret key", re: /\bsk_live_[0-9A-Za-z]{16,}\b/g },
-  { id: "private-key", label: "private key block", re: /-----BEGIN (?:RSA |EC |DSA |OPENSSH |PGP )?PRIVATE KEY-----/g },
-  { id: "jdbc-inline-password", label: "database URL with an inline password",
-    re: /jdbc:[a-z0-9]+:[^\s"']*[?&;]password=[^\s"'&;]+/gi },
-  { id: "assigned-secret", label: "hard-coded secret assignment",
+  {
+    id: "private-key",
+    label: "private key block",
+    re: /-----BEGIN (?:RSA |EC |DSA |OPENSSH |PGP )?PRIVATE KEY-----/g,
+  },
+  {
+    id: "jdbc-inline-password",
+    label: "database URL with an inline password",
+    re: /jdbc:[a-z0-9]+:[^\s"']*[?&;]password=[^\s"'&;]+/gi,
+  },
+  {
+    id: "assigned-secret",
+    label: "hard-coded secret assignment",
     re: /\b(?:password|passwd|pwd|secret|api[_-]?key|access[_-]?token|client[_-]?secret|private[_-]?key)\s*[:=]\s*["'`]([^"'`\n]{8,})["'`]/gi,
-    valueGroup: 1 },
-  { id: "properties-password", label: "hard-coded password (properties/yaml style)",
+    valueGroup: 1,
+  },
+  {
+    id: "properties-password",
+    label: "hard-coded password (properties/yaml style)",
     re: /^[ \t]*[\w.-]*(?:password|passwd|pwd)\s*[=:][ \t]*([^\s"'#$`{][^\s#]{7,})$/gim,
-    valueGroup: 1 },
+    valueGroup: 1,
+  },
 ];
 
 /**
@@ -49,11 +62,19 @@ const INDIRECTION =
 
 /** Files whose whole purpose is to hold a credential. Writing one is a human act. */
 export const SECRET_PATH_RULES = [
-  { id: "env-file", label: "environment file", re: /(^|[\\/])\.env(\.[\w-]+)?$/i, allow: /\.(example|sample|template)$/i },
+  {
+    id: "env-file",
+    label: "environment file",
+    re: /(^|[\\/])\.env(\.[\w-]+)?$/i,
+    allow: /\.(example|sample|template)$/i,
+  },
   { id: "pem", label: "certificate/key file", re: /\.(pem|key|p12|pfx|jks|keystore)$/i },
   { id: "ssh-key", label: "SSH private key", re: /(^|[\\/])id_(rsa|dsa|ecdsa|ed25519)$/i },
-  { id: "cloud-creds", label: "cloud credential file",
-    re: /(^|[\\/])((application_default_)?credentials(\.json)?|service[-_]?account[^\\/]*\.json|\.npmrc|\.pypirc)$/i },
+  {
+    id: "cloud-creds",
+    label: "cloud credential file",
+    re: /(^|[\\/])((application_default_)?credentials(\.json)?|service[-_]?account[^\\/]*\.json|\.npmrc|\.pypirc)$/i,
+  },
 ];
 
 const lineOf = (text, index) => text.slice(0, index).split("\n").length;
@@ -71,7 +92,12 @@ export function scanContent(content) {
       if (!value) continue;
       const line = lines[lineOf(text, m.index) - 1] ?? "";
       if (allowlisted(value, line)) continue;
-      findings.push({ rule: rule.id, label: rule.label, line: lineOf(text, m.index), excerpt: mask(value) });
+      findings.push({
+        rule: rule.id,
+        label: rule.label,
+        line: lineOf(text, m.index),
+        excerpt: mask(value),
+      });
     }
   }
   return findings;

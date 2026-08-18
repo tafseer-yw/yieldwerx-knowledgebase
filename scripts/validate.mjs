@@ -115,10 +115,7 @@ for (const skillName of skillDirectories) {
   }
 }
 
-const handbookRoot = path.join(
-  skillsRoot,
-  "ask-yieldwerx/references/handbook",
-);
+const handbookRoot = path.join(skillsRoot, "ask-yieldwerx/references/handbook");
 const chapters = fs
   .readdirSync(handbookRoot)
   .filter((file) => file.endsWith(".md"))
@@ -138,15 +135,13 @@ for (const chapter of chapters) {
     fail(`${chapter} does not cite handbook-third-html.`);
   }
   if (!id || ids.has(id)) fail(`${chapter} has a missing or duplicate ID.`);
-  if (!section || sections.has(section)) fail(`${chapter} has a missing or duplicate source section.`);
+  if (!section || sections.has(section))
+    fail(`${chapter} has a missing or duplicate source section.`);
   ids.add(id);
   sections.add(section);
 }
 
-const index = fs.readFileSync(
-  path.join(skillsRoot, "ask-yieldwerx/references/INDEX.md"),
-  "utf8",
-);
+const index = fs.readFileSync(path.join(skillsRoot, "ask-yieldwerx/references/INDEX.md"), "utf8");
 for (const chapter of chapters) {
   if (!index.includes(`handbook/${chapter}`)) {
     fail(`Knowledge index does not route to ${chapter}.`);
@@ -198,9 +193,7 @@ for (const file of markdownFiles) {
     const clean = decodeURIComponent(link.split("#")[0]);
     const target = path.resolve(path.dirname(file), clean);
     if (!fs.existsSync(target)) {
-      fail(
-        `Broken local link in ${path.relative(root, file)}: ${link}`,
-      );
+      fail(`Broken local link in ${path.relative(root, file)}: ${link}`);
     }
   }
 }
@@ -218,9 +211,15 @@ for (const file of markdownFiles) {
     fail("domain-map.md is missing.");
   } else {
     const text = fs.readFileSync(domainMap, "utf8");
-    for (const marker of ["generated: false", "authored: hand-written", "Hand-written, not generated"]) {
+    for (const marker of [
+      "generated: false",
+      "authored: hand-written",
+      "Hand-written, not generated",
+    ]) {
       if (!text.includes(marker)) {
-        fail(`domain-map.md must declare its provenance ('${marker}') - it is hand-asserted, not derived.`);
+        fail(
+          `domain-map.md must declare its provenance ('${marker}') - it is hand-asserted, not derived.`,
+        );
       }
     }
   }
@@ -228,7 +227,9 @@ for (const file of markdownFiles) {
 
 for (const required of ["scripts/lib/authority.mjs", "scripts/render-authority.mjs"]) {
   if (!fs.existsSync(path.join(root, required))) {
-    fail(`${required} is missing - the authority order would go back to being written out five times.`);
+    fail(
+      `${required} is missing - the authority order would go back to being written out five times.`,
+    );
   }
 }
 

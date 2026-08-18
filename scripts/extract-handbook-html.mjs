@@ -116,9 +116,7 @@ function escapeCell(value) {
 
 function convertTable(table) {
   const rows = [...table.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].map((match) =>
-    [...match[1].matchAll(/<(th|td)\b[^>]*>([\s\S]*?)<\/\1>/gi)].map((cell) =>
-      escapeCell(cell[2]),
-    ),
+    [...match[1].matchAll(/<(th|td)\b[^>]*>([\s\S]*?)<\/\1>/gi)].map((cell) => escapeCell(cell[2])),
   );
   if (!rows.length) return "";
   const width = Math.max(...rows.map((row) => row.length));
@@ -146,7 +144,10 @@ function htmlToMarkdown(source) {
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/<(script|style|svg|button|nav)\b[\s\S]*?<\/\1>/gi, "")
     .replace(/<img\b[^>]*>/gi, "")
-    .replace(/<div\b[^>]*class=["'][^"']*(?:toolbar|chips|meta|breadcrumb|progress|quiz-controls|chapter-nav)[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, "");
+    .replace(
+      /<div\b[^>]*class=["'][^"']*(?:toolbar|chips|meta|breadcrumb|progress|quiz-controls|chapter-nav)[^"']*["'][^>]*>[\s\S]*?<\/div>/gi,
+      "",
+    );
 
   const blocks = [];
   const hold = (markdown) => {

@@ -35,7 +35,10 @@ const arg = (name, fallback) => {
 
 const source = arg(
   "source",
-  path.join(root, "sources/current/third-edition/Interactive - The yieldWerx Domain Handbook - Third Edition.html"),
+  path.join(
+    root,
+    "sources/current/third-edition/Interactive - The yieldWerx Domain Handbook - Third Edition.html",
+  ),
 );
 const chapters = arg(
   "chapters",
@@ -68,16 +71,21 @@ function notChecked(reason) {
   const inCi = Boolean(process.env.CI);
   console.error(`NOT CHECKED: chapter freshness was not verified - ${reason}`);
   if (inCi) {
-    console.error("This is CI, where the source is checked out with lfs: true. Treating it as a failure.");
+    console.error(
+      "This is CI, where the source is checked out with lfs: true. Treating it as a failure.",
+    );
     process.exit(1);
   }
   console.error("Install git-lfs and run `git lfs pull` to run this check locally.");
   process.exit(0);
 }
 
-if (!fs.existsSync(source)) notChecked(`the handbook source is absent at ${path.relative(root, source)}`);
-if (isLfsPointer(source)) notChecked("the handbook source on disk is a Git LFS pointer stub, not the real file");
-if (!fs.existsSync(chapters)) notChecked(`the chapters directory is absent at ${path.relative(root, chapters)}`);
+if (!fs.existsSync(source))
+  notChecked(`the handbook source is absent at ${path.relative(root, source)}`);
+if (isLfsPointer(source))
+  notChecked("the handbook source on disk is a Git LFS pointer stub, not the real file");
+if (!fs.existsSync(chapters))
+  notChecked(`the chapters directory is absent at ${path.relative(root, chapters)}`);
 
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), "yw-freshness-"));
 try {
@@ -87,8 +95,14 @@ try {
     { stdio: ["ignore", "ignore", "pipe"] },
   );
 
-  const committed = fs.readdirSync(chapters).filter((f) => f.endsWith(".md")).sort();
-  const fresh = fs.readdirSync(scratch).filter((f) => f.endsWith(".md")).sort();
+  const committed = fs
+    .readdirSync(chapters)
+    .filter((f) => f.endsWith(".md"))
+    .sort();
+  const fresh = fs
+    .readdirSync(scratch)
+    .filter((f) => f.endsWith(".md"))
+    .sort();
 
   const drifted = [];
   const missing = fresh.filter((f) => !committed.includes(f));
@@ -101,7 +115,9 @@ try {
   }
 
   if (drifted.length || missing.length || extra.length) {
-    console.error("Chapter freshness check failed - the committed chapters do not match a fresh extraction.\n");
+    console.error(
+      "Chapter freshness check failed - the committed chapters do not match a fresh extraction.\n",
+    );
     for (const f of drifted) console.error(`- edited by hand or stale: ${f}`);
     for (const f of missing) console.error(`- missing (the extractor produces it): ${f}`);
     for (const f of extra) console.error(`- present but no longer produced by the extractor: ${f}`);
@@ -112,7 +128,9 @@ try {
     process.exit(1);
   }
 
-  console.log(`Chapter freshness verified: ${fresh.length} chapters match a fresh extraction of the current handbook.`);
+  console.log(
+    `Chapter freshness verified: ${fresh.length} chapters match a fresh extraction of the current handbook.`,
+  );
 } finally {
   fs.rmSync(scratch, { recursive: true, force: true });
 }

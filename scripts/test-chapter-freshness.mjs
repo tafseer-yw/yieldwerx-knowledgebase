@@ -55,9 +55,13 @@ try {
   const chapters = path.join(dir, "chapters");
   fs.writeFileSync(source, syntheticHandbook(sections));
 
-  execFileSync(process.execPath, [path.join(root, "scripts/extract-handbook-html.mjs"), source, chapters], {
-    stdio: ["ignore", "ignore", "pipe"],
-  });
+  execFileSync(
+    process.execPath,
+    [path.join(root, "scripts/extract-handbook-html.mjs"), source, chapters],
+    {
+      stdio: ["ignore", "ignore", "pipe"],
+    },
+  );
   check(
     "the extractor produced one file per declared section",
     fs.readdirSync(chapters).filter((f) => f.endsWith(".md")).length === sections.length,
@@ -69,7 +73,13 @@ try {
   const run = () => {
     const result = spawnSync(
       process.execPath,
-      [path.join(root, "scripts/check-chapter-freshness.mjs"), "--source", source, "--chapters", chapters],
+      [
+        path.join(root, "scripts/check-chapter-freshness.mjs"),
+        "--source",
+        source,
+        "--chapters",
+        chapters,
+      ],
       { encoding: "utf8", env: { ...process.env, CI: "" } },
     );
     return { code: result.status ?? 1, output: `${result.stdout ?? ""}${result.stderr ?? ""}` };
@@ -89,9 +99,13 @@ try {
   );
 
   // Restore, then delete one: the extractor produces it, the tree does not have it.
-  execFileSync(process.execPath, [path.join(root, "scripts/extract-handbook-html.mjs"), source, chapters], {
-    stdio: ["ignore", "ignore", "pipe"],
-  });
+  execFileSync(
+    process.execPath,
+    [path.join(root, "scripts/extract-handbook-html.mjs"), source, chapters],
+    {
+      stdio: ["ignore", "ignore", "pipe"],
+    },
+  );
   fs.rmSync(path.join(chapters, sections[5].file));
   const removed = run();
   check("a deleted chapter is caught", removed.code !== 0);

@@ -1,0 +1,16 @@
+# Generated content is reproduced from a hashed source by
+# scripts/extract-handbook-html.mjs, and check-chapter-freshness.mjs asserts
+# the committed files match a fresh extraction byte for byte.
+#
+# Formatting them would reflow prose the extractor did not produce, so the
+# freshness gate would fail on every run and the only way to satisfy both would
+# be to teach the extractor Prettier's wrapping. The generated files are not
+# hand-edited, so there is nothing for a formatter to protect here.
+plugins/yieldwerx-knowledgebase/skills/ask-yieldwerx/references/handbook/
+
+# Derived indexes.
+graph/
+catalog/sources.json
+
+# LFS sources.
+sources/

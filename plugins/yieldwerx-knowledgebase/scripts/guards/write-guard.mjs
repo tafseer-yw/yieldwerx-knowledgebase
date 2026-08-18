@@ -17,7 +17,9 @@ export function writtenText(toolInput = {}) {
     toolInput.content,
     toolInput.new_string,
     toolInput.new_source,
-    ...(Array.isArray(toolInput.edits) ? toolInput.edits.map((e) => e?.new_string ?? e?.new_source) : []),
+    ...(Array.isArray(toolInput.edits)
+      ? toolInput.edits.map((e) => e?.new_string ?? e?.new_source)
+      : []),
   ]
     .filter((p) => typeof p === "string")
     .join("\n");
